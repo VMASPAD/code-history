@@ -6,7 +6,7 @@ This is the README for your extension "copy-history". After writing up a brief d
 
 
 <div align='center' height='60px'>
-  <img src="https://github.com/OmriGM/code-history/presentation.gif?raw=true"/>
+  <img src="https://github.com/vmaspad/code-history/presentation.gif?raw=true"/>
 </div>
 
 
