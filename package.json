@@ -1,0 +1,76 @@
+{
+  "name": "copy-history",
+  "displayName": "Copy History",
+  "description": "Save all copies of your current project so you don't lose them and use them in other code.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "copyHistory",
+          "title": "Copy History",
+          "icon": "icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "copyHistory": [
+        {
+          "id": "copyHistoryView",
+          "name": "Copy History"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "copy-history.copyItem",
+        "title": "Copy Item"
+      },
+      {
+        "command": "copy-history.deleteItem",
+        "title": "Delete Item"
+      }
+    ],
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "copy-history.copyItem",
+          "when": "view == copyHistoryView && viewItem == copyItem",
+          "group": "inline"
+        },
+        {
+          "command": "copy-history.deleteItem",
+          "when": "view == copyHistoryView && viewItem == copyItem",
+          "group": "inline"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.94.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}
